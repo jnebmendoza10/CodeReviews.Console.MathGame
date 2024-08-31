@@ -8,7 +8,7 @@ namespace MathGame
     {
         static void Main(string[] args)
         {
-            displayMenuHeader();
+            DisplayMenuHeader();
 
             List<Game> history = new List<Game>();
 
@@ -16,15 +16,15 @@ namespace MathGame
             {
                 try
                 {
-                    displayUserChoices();
+                    DisplayUserChoices();
                     var menuChoice = Console.ReadLine().ParseMenuChoice();
 
                     if (menuChoice == Enums.Menu.Play)
                     {
-                        displayDifficulty();
+                        DisplayDifficulty();
                         var difficultyChoice = Console.ReadLine().ParseDifficultyChoice();
 
-                        displayOperations();
+                        DisplayOperations();
                         var operationChoice = Console.ReadLine().ParseModeChoice();
 
                         GameManager manager = new GameManager();
@@ -71,11 +71,11 @@ namespace MathGame
                     }
                     else if (menuChoice == Enums.Menu.History)
                     {
-                        displayGameHistory(history);
+                        DisplayGameHistory(history);
                     }
                     else if ( menuChoice == Enums.Menu.Quit)
                     {
-                        displayMenuFooter();
+                        DisplayMenuFooter();
                         return;
                     }
 
@@ -88,14 +88,14 @@ namespace MathGame
             }
         }
 
-        private static void displayMenuHeader()
+        private static void DisplayMenuHeader()
         {
             Console.WriteLine("****************************");
             Console.WriteLine("Welcome to the Math Game");
             Console.WriteLine("****************************");
         }
 
-        private static void displayUserChoices()
+        private static void DisplayUserChoices()
         {
             Console.WriteLine("1. Play Now");
             Console.WriteLine("2. View Game History");
@@ -104,7 +104,7 @@ namespace MathGame
         }
 
 
-        private static void displayDifficulty()
+        private static void DisplayDifficulty()
         {
             Console.WriteLine("1. Easy");
             Console.WriteLine("2. Medium");
@@ -112,7 +112,7 @@ namespace MathGame
             Console.Write("Enter a number to select difficulty: ");
         }
 
-        private static void displayOperations()
+        private static void DisplayOperations()
         {
             Console.WriteLine("1. Addition");
             Console.WriteLine("2. Subtraction");
@@ -122,7 +122,7 @@ namespace MathGame
             Console.Write("Enter a number to select an operation: ");
         }
 
-        private static void displayGameHistory(List<Game> userHistory)
+        private static void DisplayGameHistory(List<Game> userHistory)
         {
             if (userHistory == null || userHistory.Count == 0) 
             {
@@ -137,7 +137,7 @@ namespace MathGame
             }
         }
 
-        private static void displayMenuFooter()
+        private static void DisplayMenuFooter()
         {
             Console.WriteLine("****************************");
             Console.WriteLine("Thank you for playing!");

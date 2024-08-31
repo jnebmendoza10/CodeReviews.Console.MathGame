@@ -1,5 +1,4 @@
 ﻿using MathGame.Constants;
-using MathGame.Enums;
 
 namespace MathGame.Extensions
 {

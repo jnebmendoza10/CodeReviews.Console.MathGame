@@ -1,5 +1,4 @@
-﻿using System;
-using MathGame.Constants;
+﻿using MathGame.Constants;
 using MathGame.Enums;
 using MathGame.Extensions;
 
@@ -26,8 +25,8 @@ namespace MathGame
 
             for (int i = 0; i < NUMBER_OF_QUESTIONS; i++)
             {
-                var numbers = generateNumbers(gameDifficulty, gameMode);
-                string operation = generateOperation(gameMode);
+                var numbers = GenerateNumbers(gameDifficulty, gameMode);
+                string operation = GenerateOperation(gameMode);
                 string question = ($"{numbers.FirstNumber} {operation} {numbers.SecondNumber} : ");
                 
                 questionsAndAnswers.Add(
@@ -38,7 +37,7 @@ namespace MathGame
             return questionsAndAnswers;
         }
 
-        private (int FirstNumber, int SecondNumber) generateNumbers(Difficulty gameDifficulty, Mode gameMode)
+        private (int FirstNumber, int SecondNumber) GenerateNumbers(Difficulty gameDifficulty, Mode gameMode)
         {
             Random random = new Random();
             int firstNumber = 0;
@@ -50,7 +49,7 @@ namespace MathGame
 
                     if (gameMode == Mode.Division)
                     {
-                        return generateNumbersForDivision(
+                        return GenerateNumbersForDivision(
                             ref firstNumber,
                             ref secondNumber,
                             EASY_MIN_RANGE,
@@ -65,7 +64,7 @@ namespace MathGame
 
                     if (gameMode == Mode.Division)
                     {
-                        return generateNumbersForDivision(
+                        return GenerateNumbersForDivision(
                             ref firstNumber,
                             ref secondNumber,
                             MEDIUM_MIN_RANGE,
@@ -80,7 +79,7 @@ namespace MathGame
                 case Difficulty.Hard:
                     if (gameMode == Mode.Division)
                     {
-                        return generateNumbersForDivision(
+                        return GenerateNumbersForDivision(
                             ref firstNumber,
                             ref secondNumber,
                             HARD_MIN_RANGE,
@@ -96,7 +95,7 @@ namespace MathGame
             }
         }
 
-        private (int FirstNumber, int SecondNumber) generateNumbersForDivision(
+        private (int FirstNumber, int SecondNumber) GenerateNumbersForDivision(
             ref int firstNumber, 
             ref int secondNumber,
             int minRange,
@@ -115,7 +114,7 @@ namespace MathGame
             return (firstNumber, secondNumber);
         }
 
-        private string generateOperation(Mode mode)
+        private string GenerateOperation(Mode mode)
         {
             var modeToOperator = new Dictionary<Mode, string>()
             {
